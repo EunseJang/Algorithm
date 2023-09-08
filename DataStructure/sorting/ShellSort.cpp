@@ -18,7 +18,7 @@ void ShellSort(int A[], int n) {
         A[j] = A[j-h];
         j -= h;
 
-        if (j < h) {
+        if (j <= h-1) {
           break;
         }
       }
