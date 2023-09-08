@@ -1,30 +1,38 @@
 #include <iostream>
 using namespace std;
 
-void InsertionSort(int A[], int n){
-  for (int i=1; i<=n; i++) {
-    int value = A[i];
-    int j = i;
+void Swap(int &a, int &b) {
+  int tmp = a;
+  a = b;
+  b = tmp;
+}
 
-    while (j > 1 && A[j-1] > value) {
-      A[j] = A[j-1];
-      j--;
+void InsertionSort(int A[], int n) {
+  int i, j, minIdx;
+
+  for (int i=0; i<n-1; i++) {
+    minIdx = i;
+    for (j=minIdx+1; j<n; j++){
+      if (A[minIdx] > A[j]) {
+        minIdx = j;
+      }
     }
 
-    A[j] = value;
+    if (minIdx != i) {
+      Swap(A[i], A[minIdx]);
+    }
   }
 }
 
 int main() {
-  int A[] = {0, 30, 20, 40, 10, 5, 10, 30, 15}; // 0은 dummy값
-  int n = sizeof(A)/sizeof(A[0])-1; // dummy값 제외 원소 개수
+  int A[] = {30, 20, 40, 10, 5, 10, 30, 15};
+  int size = sizeof(A)/sizeof(A[0]);
 
-  InsertionSort(A, n);
+  InsertionSort(A, size);
 
-  for (int i = 1; i <= n; i++) {
+  for (int i = 0; i<size; i++) {
     cout << A[i] << " ";
   }
   cout << endl;
-
   return 0;
 }
