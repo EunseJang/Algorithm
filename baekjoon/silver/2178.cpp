@@ -42,7 +42,7 @@ void BFS (int x, int y) {
       int n = tmp[1] + dy[i]; // y 좌표
 
       if (m>=1 && n>=1 && m<=N && n<=M) { // 좌표 유효성 검사
-        if(map[m][n] == 1 && !visited[m][n]) {// 방문 하지 않는 좌표 중에서 값이 1인 좌표
+        if(map[m][n] == 1 && !visited[m][n]) { // 방문 하지 않는 좌표 중에서 값이 1인 좌표
           visited[m][n] = true;
           map[m][n] = map[tmp[0]][tmp[1]] + 1; // 좌표 count;
           bfsQueue.push(make_pair(m, n));
