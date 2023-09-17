@@ -61,25 +61,25 @@ int findFakeCoin(vector<int> coins, int left, int right) {
 }
 
 int main() {
-    vector<int> coins (100, -1);
+  vector<int> coins (100, -1);
 
-    int fakeCoinIdx;
-    cin >> fakeCoinIdx; // 가짜 동전 위치 입력
+  int fakeCoinIdx;
+  cin >> fakeCoinIdx; // 가짜 동전 위치 입력
 
-    for (int i=0; i<100;i++) {
-        if (i==fakeCoinIdx) {
-            coins[i]=0;
-        } else {
-            coins[i]=1;
-        }
-    }
-
-    int fakeCoinIndex = findFakeCoin(coins, 0, coins.size() - 1);
-
-    if (fakeCoinIndex != -1) {
-        cout << fakeCoinIndex << endl;
+  for (int i=0; i<100;i++) {
+    if (i==fakeCoinIdx) {
+      coins[i]=0;
     } else {
-        cout << -1 << endl;
+      coins[i]=1;
     }
-    return 0;
+  }
+
+  int fakeCoinIndex = findFakeCoin(coins, 0, coins.size() - 1);
+
+  if (fakeCoinIndex != -1) {
+    cout << fakeCoinIndex << endl;
+  } else {
+    cout << -1 << endl;
+  }
+  return 0;
 }
